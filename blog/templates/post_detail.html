@@ -1,0 +1,14 @@
+{% extends 'layoutport.html' %}
+{% block content%}
+
+<div class="text-center">
+    <h2>{{post.title}}</h2>
+    <img class="img-fluid" src="{{post.image.url}}" alt="{{post.title}}">
+    <b><p class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</p></b>
+    <!--Cuando se entre a la publicacion si usamos el filtro safe, para que interprete el html que llegue a tener el texto-->
+    <div class="my-4">
+        <p>{{post.description|safe}}</p>
+    </div>
+</div>
+
+{% endblock %}

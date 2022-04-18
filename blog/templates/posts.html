@@ -1,0 +1,26 @@
+{% extends 'layoutport.html' %}
+{% block content%}
+<h1>POSTS</h1>
+{% for post in posts %}
+    <div class="p-3">
+        <div class="card card-body bg-black card-project">
+            <div class="row">
+                <div class="col-3">
+                    <img class="img-fluid" src="{{post.image.url}}" alt="{{post.title}}">
+                </div>
+                <div class="col-9">
+                    <h2>{{post.title}}</h2>
+                    <!--Damos un formato a la fecha, upper es para mayusculas, estos se llaman filtros-->
+                    <b><p>{{post.date|date:'M d Y'|upper}}</p></b>
+                    <!--Con truncatechars solo se muestra el numero de caracteres especificado, esto es para solo dar una preview, safe lo que hace es que si en el texto viene algo html lo interpreta, striptags es similar a safe, pero este no interpreta el html, solo quita las etiquetas, no interpretamos el html para que aqui no interfiera -->
+                    <!-- <p>{{post.description|safe|truncatechars:100}}</p> -->
+                    <p>{{post.description|striptags|truncatechars:100}}</p>
+                    <!--lo dirigimos a la url del articulo mandando el id del post como parametro-->
+                    <a class="btn btn-primary " href="{% url 'blog:post_detail' post.id %}">Ir al articulo</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{%extends 'layout.html'%}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <form action="{%url 'password'%}" class="card card-body" style="background: #121212;">
+    
+        <h1>Password Generator</h1>
+    
+        <label for="length">Selecciona la longitud de tu contrasena</label>
+        <select name="length" id="length" class="form-control">
+            <option value="6">6 caracteres</option>
+            <option value="7">7 caracteres</option>
+            <option value="8">8 caracteres</option>
+            <option value="9">9 caracteres</option>
+            <option value="10">10 caracteres</option>
+            <option value="11">11 caracteres</option>
+            <option value="12">12 caracteres</option>
+            <option value="13">13 caracteres</option>
+            <option value="14">14 caracteres</option>
+        </select>
+        <div class="custom-control custom-switch my-2">
+            <label for="uppercase" class="custom-control-label">Mayusculas</label>
+            <input type="checkbox" name="uppercase" id="uppercase" class="custom-control-input">
+        </div>
+        <div class="custom-control custom-switch my-2">
+            <label class="custom-control-label" for="special">Caracteres especiales</label>
+            <input type="checkbox" name="special" id="special" class="custom-control-input">
+        </div>
+        <div class="custom-control custom-switch my-2">
+            <label class="custom-control-label" for="numbers">Numeros</label>
+            <input type="checkbox" name="numbers" id="numbers" class="custom-control-input">
+        </div>
+        <div class="custom-control custom-switch my-2">
+            <label class="custom-control-label" for="use_n">Ñ</label>
+            <input type="checkbox" name="use_n" id="use_n" class="custom-control-input">
+        </div>
+        
+        <button class="btn btn-primary">Generar Contrasena</button>
+    </form>
+</div>
+{%endblock%}
